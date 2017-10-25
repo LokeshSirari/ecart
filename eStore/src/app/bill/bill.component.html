@@ -1,0 +1,36 @@
+<button type="button" class="btn btn-danger" (click)="showBill()">Show Bill</button>
+<h5>Facebook Name:{{name}}</h5>
+<h5>Facebookk Id:{{id}}</h5>
+<div class="container">      
+    <table class="table table-hover">
+      
+      <thead>
+        <tr>
+          <th>Product Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+
+        </tr>
+      </thead>
+     
+      <tbody *ngFor='let products of cartProduct' >
+         
+        <tr>
+          <td>{{products.productName}}</td>
+          <td>{{products.price}}</td>
+          <td>{{products.quantity}}</td>
+          <td>{{products.total}}</td>
+
+        </tr>
+              
+      </tbody>
+      <tbody>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>{{total}}</td>
+      </tbody>
+    
+    </table>
+  </div>

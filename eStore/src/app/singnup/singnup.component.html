@@ -1,0 +1,51 @@
+<app-header></app-header>
+<div>hello</div>
+<form #userForm="ngForm" (ngSubmit)="signup()" class="form-horizontal col-md-12 col-md-offset-3 top">
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="name">Name:</label>
+    <div class="col-sm-2">
+      <input type="name" #nameRef="ngModel" required pattern="^[a-zA-Z]+\s*[a-zA-Z]+$" class="form-control" id="name" name="name" [(ngModel)]="userInput.name"
+        placeholder="Enter Name">
+    </div>
+    <div [hidden]="nameRef.valid || nameRef.pristine">
+      Enter Valid Name
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="email">Email:</label>
+    <div class="col-sm-2">
+      <input type="email" #emailRef="ngModel" required pattern="^[\w]+(\.[\w]+)?@[a-zA-Z]{1,10}\.[a-zA-Z]{2,5}$" class="form-control"
+        id="email" name="email" [(ngModel)]="userInput.email" placeholder="Enter Email">
+
+    </div>
+    <div [hidden]="emailRef.valid || emailRef.pristine">
+      Enter Valid Email
+    </div>
+
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="mobile">Mobile:</label>
+    <div class="col-sm-2">
+      <input type="mobile"  #mobileRef="ngModel" required pattern="^[789]{1}[0-9]{9}$" class="form-control" id="mobile" name="mobile" [(ngModel)]="userInput.mobile" placeholder="Enter Mobile Number">
+    </div>
+    <div [hidden]="mobileRef.valid || mobileRef.pristine">
+      Enter Valid Mobile Number(Startin from 7,8 or 9 and having 10 digit)
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="pwd">Password:</label>
+    <div class="col-sm-2">
+      <input type="password" #passwordRef="ngModel" required class="form-control" id="pwd" name="password" [(ngModel)]="userInput.password" placeholder="Enter password">
+    </div>
+    <div [hidden]="passwordRef.valid || passwordRef.pristine">
+      Enter Password
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default" routerLink="/" routerLinkActive="active">Cancel</button>
+      <button [disabled]="!userForm.form.valid" type="submit" class="btn btn-default" >Signup</button>
+    </div>
+  </div>
+</form>
+<app-footer></app-footer>
